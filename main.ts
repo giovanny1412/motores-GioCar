@@ -8,6 +8,7 @@ namespace motores {
 
     // Definición del bloque para activar el motor 1
     //% blockId=activarMotor1 block="activar motor 1 en dirección %direccion|con velocidad %velocidad"
+    //% velocidad.min=0 velocidad.max=100
     export function activarMotor1(direccion: MotorDirection, velocidad: number): void {
         let pinMotor1A = DigitalPin.P0; // Pin para el motor 1
         let pinMotor1B = DigitalPin.P1; // Pin para el motor 1
