@@ -8,10 +8,11 @@ namespace motores {
 
     // Definición del bloque para activar el motor 1
     //% blockId=activarMotor1 block="activar motor 1 en dirección %direccion|con velocidad %velocidad"
-    //% velocidad.min=0 velocidad.max=100
+    
     export function activarMotor1(direccion: MotorDirection, velocidad: number): void {
         let pinMotor1A = DigitalPin.P0; // Pin para el motor 1
         let pinMotor1B = DigitalPin.P1; // Pin para el motor 1
+        let pinAnalog1 = AnalogPin.P16; // Pin para la velocidad 1
 
         // Configurar pines como salidas
         pins.digitalWritePin(pinMotor1A, 0);
@@ -27,7 +28,7 @@ namespace motores {
         }
 
         // Controlar velocidad (PWM)
-        controlMotorVelocidad(pinMotor1A, velocidad);
+        controlMotorVelocidad(pinAnalog1, velocidad);
     }
 
     // Definición del bloque para activar el motor 2
@@ -35,6 +36,7 @@ namespace motores {
     export function activarMotor2(direccion: MotorDirection, velocidad: number): void {
         let pinMotor2A = DigitalPin.P2; // Pin para el motor 2
         let pinMotor2B = DigitalPin.P3; // Pin para el motor 2
+        let pinAnalog2 = AnalogPin.P17; // Pin para la velocidad 2
 
         // Configurar pines como salidas
         pins.digitalWritePin(pinMotor2A, 0);
@@ -50,7 +52,7 @@ namespace motores {
         }
 
         // Controlar velocidad (PWM)
-        controlMotorVelocidad(pinMotor2A, velocidad);
+        controlMotorVelocidad(pinAnalog2, velocidad);
     }
 
     // Función para controlar la velocidad del motor usando PWM
